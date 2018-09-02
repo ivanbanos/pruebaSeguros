@@ -1,0 +1,12 @@
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\bin\Debug\InsurranceLogic.dll.config
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\bin\Debug\InsurranceLogic.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\bin\Debug\InsurranceLogic.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\bin\Debug\EntityFramework.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\bin\Debug\EntityFramework.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\obj\Debug\InsurranceLogic.csproj.CoreCompileInputs.cache
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\obj\Debug\InsurranceLogic.csproj.CopyComplete
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\obj\Debug\InsurranceLogic.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\obj\Debug\InsurranceLogic.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceLogic\obj\Debug\InsurranceLogic.csprojAssemblyReference.cache

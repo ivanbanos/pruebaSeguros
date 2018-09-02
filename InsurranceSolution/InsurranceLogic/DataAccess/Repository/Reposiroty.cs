@@ -46,6 +46,14 @@ namespace InsurranceLogic.DataAccess.Repository
             return null;
         }
 
+        public virtual List<T> All() {
+            List<T> objectsList = new List<T>();
+            var objects = DbSet;
+            foreach (var obj in objects)
+                objectsList.Add((T)obj);
+            return objectsList;
+        }
+
         public virtual T Create(T T)
         {
             var newEntry = DbSet.Add(T);

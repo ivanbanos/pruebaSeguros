@@ -12,6 +12,8 @@ namespace InsurranceLogic.DataAccess.Repository
 
         T Find(Expression<Func<T, bool>> predicate);
 
+        List<T> All();
+
         T Create(T t);
 
         int Delete(Expression<Func<T, bool>> predicate);
