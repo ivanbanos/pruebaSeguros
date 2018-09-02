@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
  
-import { Insurrance } from './Insurrance';
+import { Insurrance } from '../model/Insurrance';
 import { MessageService } from './message.service';
  
 const httpOptions = {
@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class InsurranceService {
  
-  private InsurrancesUrl = 'http://localhost:51719/api/Insurrance';  // URL to web api
+  private InsurrancesUrl = 'http://localhost:51719/api/Insurrance'; 
  
   constructor(
     private http: HttpClient,

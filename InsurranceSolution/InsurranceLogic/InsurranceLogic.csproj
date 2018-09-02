@@ -53,6 +53,9 @@
     <Compile Include="DataAccess\DataAccessFacade.cs" />
     <Compile Include="DataAccess\EFDataBaseConecction\DBO.cs" />
     <Compile Include="DataAccess\EFDataBaseConecction\InsurranceDBModelSeeder.cs" />
+    <Compile Include="DataAccess\EFDataBaseConecction\Perfil.cs" />
+    <Compile Include="DataAccess\EFDataBaseConecction\Permiso.cs" />
+    <Compile Include="DataAccess\EFDataBaseConecction\Usuario.cs" />
     <Compile Include="ModelAdapter\AdapterCreator.cs" />
     <Compile Include="ModelAdapter\AdapterCreatorImpl.cs" />
     <Compile Include="ModelAdapter\IAdapter.cs" />

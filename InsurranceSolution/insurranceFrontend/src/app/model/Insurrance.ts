@@ -1,3 +1,6 @@
+
+import { TiposCubrimiento }         from 'src/app/TiposCubrimiento';
+
 export class Insurrance {
   id: number;
   Nombre: string;

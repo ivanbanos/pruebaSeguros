@@ -16,6 +16,9 @@ namespace InsurranceLogic.EFDataBaseConecction
 
         public virtual DbSet<Insurrance> Insurrances { get; set; }
         public virtual DbSet<TiposCubrimiento> TiposCubrimientos { get; set; }
+        public virtual DbSet<Permiso> permisos { get; set; }
+        public virtual DbSet<Perfil> perfiles { get; set; }
+        public virtual DbSet<Usuario> usuarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -45,7 +48,16 @@ namespace InsurranceLogic.EFDataBaseConecction
                 .HasForeignKey(e => e.idTipoCubrimiento)
                 .WillCascadeOnDelete(false);
 
-            TiposCubrimiento tipo = new TiposCubrimiento();
+            modelBuilder.Entity<Perfil>()
+                .HasMany(e => e.usuarios)
+                .WithRequired(e => e.perfil)
+                .HasForeignKey(e => e.idPerfil)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Perfil>()
+                .HasMany(e => e.permisos)
+                .WithMany(e => e.perfiles);
+            
         }
     }
 }

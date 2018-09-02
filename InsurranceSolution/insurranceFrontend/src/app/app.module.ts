@@ -1,30 +1,22 @@
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
- 
- 
-import { AppRoutingModule }     from './app-routing.module';
- 
-import { AppComponent }         from './app.component';
-import { InsurranceDetailComponent }  from './Insurrance-detail/Insurrance-detail.component';
-import { InsurrancesComponent }      from './Insurrances/Insurrances.component';
-import { MessagesComponent }    from './messages/messages.component';
- 
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './routes/app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AppComponent } from './app.component';
+import { InsurrancesComponent } from './components/Insurrances/Insurrances.component';
+import { InsurranceDetailComponent } from './components/Insurrance-detail/Insurrance-detail.component';
+import { MessagesComponent } from './components/messages/messages.component';
+
+
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
- 
-  ],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   declarations: [
     AppComponent,
     InsurrancesComponent,
     InsurranceDetailComponent,
     MessagesComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

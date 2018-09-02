@@ -17,7 +17,9 @@
       <input [(ngModel)]="insurrance.descripcion" placeholder="descripcion"/>
     </label>
     <label>Tipo Cubrimiento:
-      <input [(ngModel)]="insurrance.TiposCubrimiento.id" placeholder="TiposCubrimiento"/>
+        <select [(ngModel)]="insurrance.TiposCubrimiento.id">
+            <option *ngFor="let tc of tiposCubrimientos" [ngValue]="tc.id">{{tc.Nombre}}</option>
+          </select>
     </label>
     <label>Cobertura:
       <input [(ngModel)]="insurrance.cobertura" placeholder="cobertura"/>

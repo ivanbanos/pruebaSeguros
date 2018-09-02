@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
  
-import { Insurrance } from '../Insurrance';
-import { InsurranceService } from '../Insurrance.service';
+import { Insurrance } from '../../model/Insurrance';
+import { InsurranceService } from '../../services/Insurrance.service';
  
 @Component({
   selector: 'app-insurrances',
