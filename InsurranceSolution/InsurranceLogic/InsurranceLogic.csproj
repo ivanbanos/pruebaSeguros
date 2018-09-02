@@ -50,12 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\DataAccessFacade.cs" />
+    <Compile Include="DataAccess\EFDataBaseConecction\DBO.cs" />
+    <Compile Include="DataAccess\EFDataBaseConecction\InsurranceDBModelSeeder.cs" />
+    <Compile Include="ModelAdapter\AdapterCreator.cs" />
+    <Compile Include="ModelAdapter\AdapterCreatorImpl.cs" />
+    <Compile Include="ModelAdapter\IAdapter.cs" />
+    <Compile Include="ModelAdapter\InsurranceAdapter.cs" />
+    <Compile Include="ModelAdapter\ModeloNoExisteException.cs" />
+    <Compile Include="ModelAdapter\TiposCubrimientoAdapter.cs" />
     <Compile Include="LogicFacade.cs" />
     <Compile Include="DataAccess\EFDataBaseConecction\Insurrance.cs" />
     <Compile Include="DataAccess\EFDataBaseConecction\InsurranceDBModel.cs" />
     <Compile Include="DataAccess\EFDataBaseConecction\TiposCubrimiento.cs" />
     <Compile Include="DataAccess\Repository\IRepository.cs" />
     <Compile Include="DataAccess\Repository\Reposiroty.cs" />
+    <Compile Include="Model\DTO.cs" />
+    <Compile Include="Model\Insurrance.cs" />
+    <Compile Include="Model\TiposCubrimiento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

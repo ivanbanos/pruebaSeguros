@@ -5,9 +5,10 @@ namespace InsurranceLogic.EFDataBaseConecction
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using InsurranceLogic.DataAccess.EFDataBaseConecction;
 
     [Table("TiposCubrimientos")]
-    public partial class TiposCubrimiento
+    public partial class TiposCubrimiento : DBO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TiposCubrimiento()

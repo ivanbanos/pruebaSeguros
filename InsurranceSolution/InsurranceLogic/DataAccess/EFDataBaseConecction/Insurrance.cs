@@ -1,5 +1,6 @@
 namespace InsurranceLogic.EFDataBaseConecction
 {
+    using InsurranceLogic.DataAccess.EFDataBaseConecction;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ namespace InsurranceLogic.EFDataBaseConecction
     using System.Data.Entity.Spatial;
 
     [Table("Insurrance")]
-    public partial class Insurrance
+    public partial class Insurrance:DBO
     {
         public int id { get; set; }
 

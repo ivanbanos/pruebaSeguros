@@ -100,3 +100,5 @@ C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\ob
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\obj\Debug\InsurranceApi.csproj.CopyComplete
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\obj\Debug\InsurranceApi.dll
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\obj\Debug\InsurranceApi.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\EntityFramework.SqlServer.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\EntityFramework.SqlServer.xml

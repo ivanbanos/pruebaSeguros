@@ -1,4 +1,5 @@
-﻿using InsurranceLogic.EFDataBaseConecction;
+﻿
+using InsurranceLogic.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

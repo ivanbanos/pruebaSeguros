@@ -4,12 +4,14 @@ namespace InsurranceLogic.EFDataBaseConecction
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using InsurranceLogic.DataAccess.EFDataBaseConecction;
 
     public partial class InsurranceDBModel : DbContext
     {
         public InsurranceDBModel()
             : base("name=InsurranceDBModelCS")
         {
+            Database.SetInitializer<InsurranceDBModel>(new InsurranceDBModelSeeder());
         }
 
         public virtual DbSet<Insurrance> Insurrances { get; set; }
@@ -42,6 +44,8 @@ namespace InsurranceLogic.EFDataBaseConecction
                 .WithRequired(e => e.TiposCubrimiento)
                 .HasForeignKey(e => e.idTipoCubrimiento)
                 .WillCascadeOnDelete(false);
+
+            TiposCubrimiento tipo = new TiposCubrimiento();
         }
     }
 }

@@ -25,11 +25,7 @@ namespace InsurranceLogic.DataAccess.Repository
                 return Context.Set<T>();
             }
         }
-
-        protected IQueryable Filter(Expression<Func<T, bool>> predicate)
-        {
-            return Filter(predicate);
-        }
+        
 
         public void Dispose()
         {
@@ -37,13 +33,11 @@ namespace InsurranceLogic.DataAccess.Repository
                 Context.Dispose();
         }
 
-        public virtual T Find(Expression<Func<T, bool>> predicate)
+        public virtual T Find(int id)
         {
 
-            var objects = Filter(predicate);
-            foreach (var obj in objects)
-                return (T)obj;
-            return null;
+            var obj = DbSet.Find(id);
+            return (T)obj;
         }
 
         public virtual List<T> All() {
@@ -61,11 +55,9 @@ namespace InsurranceLogic.DataAccess.Repository
             return (T)newEntry;
         }
 
-        public virtual int Delete(Expression<Func<T, bool>> predicate)
+        public virtual int Delete(T obj)
         {
-            var objects = Filter(predicate);
-            foreach (var obj in objects)
-                DbSet.Remove(obj);
+            DbSet.Remove(obj);
             return Context.SaveChanges();
         }
 

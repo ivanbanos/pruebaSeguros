@@ -1,5 +1,7 @@
-﻿using InsurranceLogic.DataAccess.Repository;
-using InsurranceLogic.EFDataBaseConecction;
+﻿using InsurranceLogic.DataAccess;
+using InsurranceLogic.DataAccess.Repository;
+using InsurranceLogic.Model;
+using InsurranceLogic.ModelAdapter;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -28,89 +30,59 @@ namespace InsurranceLogic
         private LogicFacade() { }
 
         public List<Insurrance> GetInsurrances() {
-            using (var dataContext = new InsurranceDBModel())
+            List<InsurranceLogic.EFDataBaseConecction.Insurrance> insurrancesDBO = DataAccessFacade.Instance.GetInsurrances();
+            IAdapter adapter = AdapterCreatorImpl.getInstance().getAdapter("Insurrance");
+            List<Insurrance> insurrancesDTO = new List<Insurrance>();
+            foreach(InsurranceLogic.EFDataBaseConecction.Insurrance dbo in insurrancesDBO)
             {
-                var insurranceRepository = new Repository<Insurrance>(dataContext);
-
-                List<Insurrance> insurrances = insurranceRepository.All();
-
-                return insurrances;
+                insurrancesDTO.Add((Insurrance)adapter.adapt(dbo));
             }
+            return insurrancesDTO;
         }
 
         public List<TiposCubrimiento> GetTiposCubrimientos() {
-            using (var dataContext = new InsurranceDBModel())
+            List<InsurranceLogic.EFDataBaseConecction.TiposCubrimiento> TiposCubrimientosDBO = DataAccessFacade.Instance.GetTiposCubrimientos();
+            IAdapter adapter = AdapterCreatorImpl.getInstance().getAdapter("TiposCubrimiento");
+            List<TiposCubrimiento> TiposCubrimientosDTO = new List<TiposCubrimiento>();
+            foreach (InsurranceLogic.EFDataBaseConecction.TiposCubrimiento dbo in TiposCubrimientosDBO)
             {
-                var TiposCubrimientoRepository = new Repository<TiposCubrimiento>(dataContext);
-
-                List<TiposCubrimiento> insurrances = TiposCubrimientoRepository.All();
-
-                return insurrances;
+                TiposCubrimientosDTO.Add((TiposCubrimiento)adapter.adapt(dbo));
             }
+            return TiposCubrimientosDTO;
         }
 
         public Insurrance GetInsurrance(int id)
         {
-            using (var dataContext = new InsurranceDBModel())
-            {
-                var insurranceRepository = new Repository<Insurrance>(dataContext);
-
-                Insurrance insurrance = insurranceRepository.Find(c => c.id == id);
-
-                return insurrance;
-            }
+            InsurranceLogic.EFDataBaseConecction.Insurrance insurranceDBO = DataAccessFacade.Instance.GetInsurrance(id);
+            IAdapter adapter = AdapterCreatorImpl.getInstance().getAdapter("Insurrance");
+            return (Insurrance)adapter.adapt(insurranceDBO);
         }
 
-        public int UpdateInsurrance(int id, string Nombre, string descripcion, int idTipoCubrimiento, 
+        public int UpdateInsurrance(int id, string Nombre, string descripcion, 
             DateTime inicioVigenciaPoliza, int periodoCobertura, decimal precioPoliza, int tipoRiesgo,
             TiposCubrimiento TiposCubrimiento) {
-            using (var dataContext = new InsurranceDBModel())
-            {
-                var insurranceRepository = new Repository<Insurrance>(dataContext);
-                Insurrance insurrance = insurranceRepository.Find(c => c.id == id);
-                insurrance.Nombre = Nombre;
-                insurrance.descripcion = descripcion;
-                insurrance.idTipoCubrimiento = idTipoCubrimiento;
-                insurrance.inicioVigenciaPoliza = inicioVigenciaPoliza;
-                insurrance.periodoCobertura = periodoCobertura;
-                insurrance.precioPoliza = precioPoliza;
-                insurrance.tipoRiesgo = tipoRiesgo;
-                insurrance.TiposCubrimiento = TiposCubrimiento;
 
-                return insurranceRepository.Update(insurrance);
-            }
+            IAdapter adapter = AdapterCreatorImpl.getInstance().getAdapter("TiposCubrimiento");
+            return DataAccessFacade.Instance.UpdateInsurrance(id, Nombre, descripcion, TiposCubrimiento.id,
+            inicioVigenciaPoliza, periodoCobertura, precioPoliza, tipoRiesgo);
         }
 
 
-        public Insurrance AddInsurrance(string Nombre, string descripcion, int idTipoCubrimiento,
+        public Insurrance AddInsurrance(string Nombre, string descripcion,
             DateTime inicioVigenciaPoliza, int periodoCobertura, decimal precioPoliza, int tipoRiesgo,
             TiposCubrimiento TiposCubrimiento)
         {
-            using (var dataContext = new InsurranceDBModel())
-            {
-                var insurranceRepository = new Repository<Insurrance>(dataContext);
-                Insurrance insurrance = new Insurrance();
-                insurrance.Nombre = Nombre;
-                insurrance.descripcion = descripcion;
-                insurrance.idTipoCubrimiento = idTipoCubrimiento;
-                insurrance.inicioVigenciaPoliza = inicioVigenciaPoliza;
-                insurrance.periodoCobertura = periodoCobertura;
-                insurrance.precioPoliza = precioPoliza;
-                insurrance.tipoRiesgo = tipoRiesgo;
-                insurrance.TiposCubrimiento = TiposCubrimiento;
 
-                return insurranceRepository.Create(insurrance);
-            }
+            IAdapter adapter = AdapterCreatorImpl.getInstance().getAdapter("TiposCubrimiento");
+            InsurranceLogic.EFDataBaseConecction.Insurrance insurranceDBO = DataAccessFacade.Instance.AddInsurrance(
+                Nombre, descripcion, TiposCubrimiento.id, inicioVigenciaPoliza, periodoCobertura, precioPoliza, 
+                tipoRiesgo);
+            adapter = AdapterCreatorImpl.getInstance().getAdapter("Insurrance");
+            return (Insurrance)adapter.adapt(insurranceDBO);
         }
 
         public int DeleteInsurrance(int id) {
-            using (var dataContext = new InsurranceDBModel())
-            {
-                var insurranceRepository = new Repository<Insurrance>(dataContext);
-                
-
-                return insurranceRepository.Delete(c => c.id == id);
-            }
+            return DataAccessFacade.Instance.DeleteInsurrance(id);
         }
     }
 }

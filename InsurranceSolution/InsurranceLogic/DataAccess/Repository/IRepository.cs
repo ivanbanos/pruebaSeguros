@@ -10,13 +10,13 @@ namespace InsurranceLogic.DataAccess.Repository
     interface IRepository<T> where T : class
     {
 
-        T Find(Expression<Func<T, bool>> predicate);
+        T Find(int id);
 
         List<T> All();
 
         T Create(T t);
 
-        int Delete(Expression<Func<T, bool>> predicate);
+        int Delete(T obj);
 
         int Update(T t);
     }
