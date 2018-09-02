@@ -21,17 +21,20 @@ namespace InsurranceApi.Controllers
             return InsurranceLogic.LogicFacade.Instance.GetInsurrance(id);
         }
         
-        public Insurrance Post([FromBody]Insurrance elemento)
+        public string Post([FromBody]Insurrance elemento)
         {
-
-            return InsurranceLogic.LogicFacade.Instance.AddInsurrance(elemento.Nombre, elemento.descripcion,
-            elemento.inicioVigenciaPoliza, elemento.periodoCobertura, elemento.precioPoliza, elemento.tipoRiesgo, elemento.TiposCubrimiento);
+            if (elemento.tipoRiesgo == 4 && elemento.cobertura > 50) {
+                return "Con riesgo alto, no puede tener cobertura mayor al 50%";
+            }
+             InsurranceLogic.LogicFacade.Instance.AddInsurrance(elemento.Nombre, elemento.descripcion,
+            elemento.inicioVigenciaPoliza, elemento.cobertura, elemento.periodoCobertura, elemento.precioPoliza, elemento.tipoRiesgo, elemento.TiposCubrimiento);
+            return "Ok";
         }
         
         public void Put(int id, [FromBody]Insurrance elemento)
         {
             InsurranceLogic.LogicFacade.Instance.UpdateInsurrance(id, elemento.Nombre, elemento.descripcion,
-            elemento.inicioVigenciaPoliza, elemento.periodoCobertura, elemento.precioPoliza, elemento.tipoRiesgo, elemento.TiposCubrimiento);
+            elemento.inicioVigenciaPoliza, elemento.cobertura, elemento.periodoCobertura, elemento.precioPoliza, elemento.tipoRiesgo, elemento.TiposCubrimiento);
         }
         
         public void Delete(int id)

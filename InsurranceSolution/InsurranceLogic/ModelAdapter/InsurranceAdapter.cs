@@ -14,6 +14,7 @@ namespace InsurranceLogic.ModelAdapter
             insurranceDTO.id = insurranceDBO.id;
             insurranceDTO.inicioVigenciaPoliza = insurranceDBO.inicioVigenciaPoliza;
             insurranceDTO.periodoCobertura = insurranceDBO.periodoCobertura;
+            insurranceDTO.cobertura = insurranceDBO.cobertura;
             insurranceDTO.precioPoliza = insurranceDBO.precioPoliza;
             insurranceDTO.tipoRiesgo = insurranceDBO.tipoRiesgo;
             insurranceDTO.TiposCubrimiento = new TiposCubrimiento();
@@ -27,6 +28,7 @@ namespace InsurranceLogic.ModelAdapter
             InsurranceLogic.EFDataBaseConecction.Insurrance insurranceDBO = new EFDataBaseConecction.Insurrance();
             insurranceDBO.Nombre = insurranceDTO.Nombre;
             insurranceDBO.descripcion = insurranceDTO.descripcion;
+            insurranceDBO.cobertura = insurranceDTO.cobertura;
             insurranceDBO.id = insurranceDTO.id;
             insurranceDBO.inicioVigenciaPoliza = insurranceDTO.inicioVigenciaPoliza;
             insurranceDBO.periodoCobertura = insurranceDTO.periodoCobertura;

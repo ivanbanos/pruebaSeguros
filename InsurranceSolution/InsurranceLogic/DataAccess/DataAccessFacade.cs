@@ -63,7 +63,7 @@ namespace InsurranceLogic.DataAccess
         }
 
         public int UpdateInsurrance(int id, string Nombre, string descripcion, int idTipoCubrimiento,
-            DateTime inicioVigenciaPoliza, int periodoCobertura, decimal precioPoliza, int tipoRiesgo)
+            DateTime inicioVigenciaPoliza, float cobertura, int periodoCobertura, decimal precioPoliza, int tipoRiesgo)
         {
             using (var dataContext = new InsurranceDBModel())
             {
@@ -72,6 +72,7 @@ namespace InsurranceLogic.DataAccess
                 insurrance.Nombre = Nombre;
                 insurrance.descripcion = descripcion;
                 insurrance.idTipoCubrimiento = idTipoCubrimiento;
+                insurrance.cobertura = cobertura;
                 insurrance.inicioVigenciaPoliza = inicioVigenciaPoliza;
                 insurrance.periodoCobertura = periodoCobertura;
                 insurrance.precioPoliza = precioPoliza;
@@ -83,7 +84,7 @@ namespace InsurranceLogic.DataAccess
 
 
         public Insurrance AddInsurrance(string Nombre, string descripcion, int idTipoCubrimiento,
-            DateTime inicioVigenciaPoliza, int periodoCobertura, decimal precioPoliza, int tipoRiesgo)
+            DateTime inicioVigenciaPoliza, float cobertura, int periodoCobertura, decimal precioPoliza, int tipoRiesgo)
         {
             using (var dataContext = new InsurranceDBModel())
             {
@@ -92,6 +93,7 @@ namespace InsurranceLogic.DataAccess
                 insurrance.Nombre = Nombre;
                 insurrance.descripcion = descripcion;
                 insurrance.idTipoCubrimiento = idTipoCubrimiento;
+                insurrance.cobertura = cobertura;
                 insurrance.inicioVigenciaPoliza = inicioVigenciaPoliza;
                 insurrance.periodoCobertura = periodoCobertura;
                 insurrance.precioPoliza = precioPoliza;

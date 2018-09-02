@@ -22,6 +22,8 @@ namespace InsurranceLogic.EFDataBaseConecction
 
         public int idTipoCubrimiento { get; set; }
 
+        public float cobertura { get; set; }
+
         public DateTime inicioVigenciaPoliza { get; set; }
 
         public int periodoCobertura { get; set; }

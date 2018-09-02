@@ -59,23 +59,23 @@ namespace InsurranceLogic
         }
 
         public int UpdateInsurrance(int id, string Nombre, string descripcion, 
-            DateTime inicioVigenciaPoliza, int periodoCobertura, decimal precioPoliza, int tipoRiesgo,
+            DateTime inicioVigenciaPoliza, float cobertura, int periodoCobertura, decimal precioPoliza, int tipoRiesgo,
             TiposCubrimiento TiposCubrimiento) {
 
             IAdapter adapter = AdapterCreatorImpl.getInstance().getAdapter("TiposCubrimiento");
             return DataAccessFacade.Instance.UpdateInsurrance(id, Nombre, descripcion, TiposCubrimiento.id,
-            inicioVigenciaPoliza, periodoCobertura, precioPoliza, tipoRiesgo);
+            inicioVigenciaPoliza, cobertura, periodoCobertura, precioPoliza, tipoRiesgo);
         }
 
 
         public Insurrance AddInsurrance(string Nombre, string descripcion,
-            DateTime inicioVigenciaPoliza, int periodoCobertura, decimal precioPoliza, int tipoRiesgo,
+            DateTime inicioVigenciaPoliza, float cobertura, int periodoCobertura, decimal precioPoliza, int tipoRiesgo,
             TiposCubrimiento TiposCubrimiento)
         {
 
             IAdapter adapter = AdapterCreatorImpl.getInstance().getAdapter("TiposCubrimiento");
             InsurranceLogic.EFDataBaseConecction.Insurrance insurranceDBO = DataAccessFacade.Instance.AddInsurrance(
-                Nombre, descripcion, TiposCubrimiento.id, inicioVigenciaPoliza, periodoCobertura, precioPoliza, 
+                Nombre, descripcion, TiposCubrimiento.id, inicioVigenciaPoliza, cobertura, periodoCobertura, precioPoliza, 
                 tipoRiesgo);
             adapter = AdapterCreatorImpl.getInstance().getAdapter("Insurrance");
             return (Insurrance)adapter.adapt(insurranceDBO);

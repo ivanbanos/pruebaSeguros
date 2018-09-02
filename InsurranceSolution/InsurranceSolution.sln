@@ -9,10 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurranceApi.Tests", "Insu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurranceLogic", "InsurranceLogic\InsurranceLogic.csproj", "{F2791D83-3CC5-47D7-8561-3F37523454BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurranceFrontEnd", "WebApplication1\InsurranceFrontEnd.csproj", "{C1339CCD-94F7-4A62-9777-10D3B88DCF0E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndAngular", "FrontEndAngular\FrontEndAngular.csproj", "{53BB8688-ABCE-45B2-BBAC-8028BFFFADA8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,14 +27,6 @@ Global
 		{F2791D83-3CC5-47D7-8561-3F37523454BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2791D83-3CC5-47D7-8561-3F37523454BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2791D83-3CC5-47D7-8561-3F37523454BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1339CCD-94F7-4A62-9777-10D3B88DCF0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1339CCD-94F7-4A62-9777-10D3B88DCF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1339CCD-94F7-4A62-9777-10D3B88DCF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1339CCD-94F7-4A62-9777-10D3B88DCF0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53BB8688-ABCE-45B2-BBAC-8028BFFFADA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53BB8688-ABCE-45B2-BBAC-8028BFFFADA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53BB8688-ABCE-45B2-BBAC-8028BFFFADA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53BB8688-ABCE-45B2-BBAC-8028BFFFADA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

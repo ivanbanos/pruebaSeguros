@@ -13,7 +13,8 @@ namespace InsurranceLogic.Model
         public int id { get; set; }
         public string Nombre { get; set; }
         public string descripcion { get; set; }
-        
+
+        public float cobertura { get; set; }
 
         public DateTime inicioVigenciaPoliza { get; set; }
 

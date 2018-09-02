@@ -1,0 +1,45 @@
+<h2>Insurrances</h2>
+ 
+<div>
+  <label>Nombre:
+    <input #nombre />
+  </label>
+  <label>Descripcion:
+    <input #descripcion />
+  </label>
+  <label>Tipo Cubrimiento:
+    <input #tipoCubrimiento />
+  </label>
+  <label>Cobertura:
+    <input #cobertura />
+  </label>
+  <label>Inicio de vigencia de la poliza:
+    <input #inicioVigenciaPoliza />
+  </label>
+  <label>Periodo de cobertura:
+    <input #periodoCobertura />
+  </label>
+  <label>Precio:
+    <input #preciCobertura />
+  </label>
+  <label>Tipo de riesgo:
+    <input #tipoRiesgo />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(nombre.value, descripcion.value, tipoCubrimiento.value, cobertura.value,
+  inicioVigenciaPoliza.value, periodoCobertura.value, preciCobertura.value, tipoRiesgo.value ); 
+  insurranceName.value=''; descripcion.value=''; tipoCubrimiento.value=''; cobertura.value='';
+  inicioVigenciaPoliza.value=''; periodoCobertura.value=''; preciCobertura.value=''; tipoRiesgo.value='';">
+    Agregar poliza
+  </button>
+</div>
+ 
+<ul class="insurrances">
+  <li *ngFor="let insurrance of Insurrances">
+    <a routerLink="/detail/{{insurrance.id}}">
+      <span class="badge">{{insurrance.id}}</span> {{insurrance.Nombre}}
+    </a>
+    <button class="delete" title="delete insurrance"
+    (click)="delete(insurrance)">x</button>
+  </li>
+</ul>

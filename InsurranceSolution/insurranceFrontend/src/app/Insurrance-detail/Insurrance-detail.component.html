@@ -1,0 +1,40 @@
+<div *ngIf="insurrance">
+  <h2>{{ insurrance.Nombre | uppercase }} Details</h2>
+  <div><span>id: </span>{{insurrance.id}}</div>
+  <div><span>descripcion: </span>{{insurrance.descripcion}}</div>
+  <div><span>TiposCubrimiento: </span>{{insurrance.TiposCubrimiento.Nombre}}</div>
+  <div><span>cobertura: </span>{{insurrance.cobertura}}</div>
+  <div><span>inicioVigenciaPoliza: </span>{{insurrance.inicioVigenciaPoliza}}</div>
+  <div><span>periodoCobertura: </span>{{insurrance.periodoCobertura}}</div>
+  <div><span>precioPoliza: </span>{{insurrance.precioPoliza}}</div>
+  <div><span>tipoRiesgo: </span>{{insurrance.tipoRiesgo}}</div>
+  
+  <div>
+    <label>Nombre:
+      <input [(ngModel)]="insurrance.Nombre" placeholder="name"/>
+    </label>
+    <label>Descripcion:
+      <input [(ngModel)]="insurrance.descripcion" placeholder="descripcion"/>
+    </label>
+    <label>Tipo Cubrimiento:
+      <input [(ngModel)]="insurrance.TiposCubrimiento.id" placeholder="TiposCubrimiento"/>
+    </label>
+    <label>Cobertura:
+      <input [(ngModel)]="insurrance.cobertura" placeholder="cobertura"/>
+    </label>
+    <label>Inicio de vigencia de la poliza:
+      <input [(ngModel)]="insurrance.inicioVigenciaPoliza" placeholder="inicioVigenciaPoliza"/>
+    </label>
+    <label>Periodo de cobertura:
+      <input [(ngModel)]="insurrance.periodoCobertura" placeholder="periodoCobertura"/>
+    </label>
+    <label>Precio:
+      <input [(ngModel)]="insurrance.precioPoliza" placeholder="precioPoliza"/>
+    </label>
+    <label>Tipo de riesgo:
+      <input [(ngModel)]="insurrance.tipoRiesgo" placeholder="tipoRiesgo"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
