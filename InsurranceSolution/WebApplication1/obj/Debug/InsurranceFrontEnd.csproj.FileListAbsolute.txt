@@ -88,4 +88,3 @@ C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\WebApplication1\
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\WebApplication1\obj\Debug\InsurranceFrontEnd.csproj.CopyComplete
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\WebApplication1\obj\Debug\WebApplication1.pdb
-C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\WebApplication1\obj\Debug\InsurranceFrontEnd.csprojAssemblyReference.cache
