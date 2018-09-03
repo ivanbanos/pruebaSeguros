@@ -1,10 +1,12 @@
-﻿using InsurranceLogic.DataAccess.Repository;
+﻿using InsurranceLogic.DataAccess.EFDataBaseConecction;
+using InsurranceLogic.DataAccess.Repository;
 using InsurranceLogic.EFDataBaseConecction;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace InsurranceLogic.DataAccess
 {
@@ -49,6 +51,7 @@ namespace InsurranceLogic.DataAccess
                 return insurrances;
             }
         }
+
 
         public Insurrance GetInsurrance(int id)
         {
@@ -111,6 +114,16 @@ namespace InsurranceLogic.DataAccess
                 Insurrance insurrance = insurranceRepository.Find(id);
 
                 return insurranceRepository.Delete(insurrance);
+            }
+        }
+
+        public Usuario getUsuario(string nombreUsuario) {
+            using (var dataContext = new InsurranceDBModel())
+            {
+                var usuarioRepository = new Repository<Usuario>(dataContext);
+                Usuario usuario = usuarioRepository.FindByExpr(c => c.NombreUsuario == nombreUsuario);
+
+                return usuario;
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using InsurranceLogic.DataAccess.EFDataBaseConecction;
+using InsurranceLogic.EFDataBaseConecction;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

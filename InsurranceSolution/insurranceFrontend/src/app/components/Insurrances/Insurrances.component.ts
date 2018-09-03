@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
  
 import { Insurrance } from '../../model/Insurrance';
 import { InsurranceService } from '../../services/Insurrance.service';
- 
+
 @Component({
   selector: 'app-insurrances',
   templateUrl: './insurrances.component.html',

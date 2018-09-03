@@ -71,6 +71,7 @@
     <Compile Include="Model\DTO.cs" />
     <Compile Include="Model\Insurrance.cs" />
     <Compile Include="Model\TiposCubrimiento.cs" />
+    <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

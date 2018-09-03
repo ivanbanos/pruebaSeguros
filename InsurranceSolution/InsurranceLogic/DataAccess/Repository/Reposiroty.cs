@@ -18,7 +18,7 @@ namespace InsurranceLogic.DataAccess.Repository
             Context = context;
         }
 
-        protected DbSet DbSet
+        protected DbSet dbSet
         {
             get
             {
@@ -36,13 +36,18 @@ namespace InsurranceLogic.DataAccess.Repository
         public virtual T Find(int id)
         {
 
-            var obj = DbSet.Find(id);
+            var obj = dbSet.Find(id);
             return (T)obj;
+        }
+
+        public virtual T FindByExpr(Expression<Func<T, bool>> predicate)
+        {
+            return Context.Set<T>().SingleOrDefault(predicate);
         }
 
         public virtual List<T> All() {
             List<T> objectsList = new List<T>();
-            var objects = DbSet;
+            var objects = dbSet;
             foreach (var obj in objects)
                 objectsList.Add((T)obj);
             return objectsList;
@@ -50,21 +55,21 @@ namespace InsurranceLogic.DataAccess.Repository
 
         public virtual T Create(T T)
         {
-            var newEntry = DbSet.Add(T);
+            var newEntry = dbSet.Add(T);
             Context.SaveChanges();
             return (T)newEntry;
         }
 
         public virtual int Delete(T obj)
         {
-            DbSet.Remove(obj);
+            dbSet.Remove(obj);
             return Context.SaveChanges();
         }
 
         public virtual int Update(T T)
         {
             var entry = Context.Entry(T);
-            DbSet.Attach(T);
+            dbSet.Attach(T);
             entry.State = EntityState.Modified;
             return Context.SaveChanges();
         }

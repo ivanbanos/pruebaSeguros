@@ -6,7 +6,7 @@ namespace InsurranceLogic.EFDataBaseConecction
     using System.Linq;
     using InsurranceLogic.DataAccess.EFDataBaseConecction;
 
-    public partial class InsurranceDBModel : DbContext
+    public partial class InsurranceDBModel : DbContext, IDisposable
     {
         public InsurranceDBModel()
             : base("name=InsurranceDBModelCS")

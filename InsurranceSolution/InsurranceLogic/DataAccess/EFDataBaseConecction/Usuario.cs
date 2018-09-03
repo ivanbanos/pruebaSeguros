@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 
-namespace InsurranceLogic.DataAccess.EFDataBaseConecction
+namespace InsurranceLogic.EFDataBaseConecction
 {
     [Table("Usuarios")]
     public partial class Usuario : DBO
@@ -17,7 +17,7 @@ namespace InsurranceLogic.DataAccess.EFDataBaseConecction
         public string NombreUsuario { get; set; }
 
         [Required]
-        [StringLength(250)]
+        [StringLength(500)]
         public string Contrasena { get; set; }
 
         [Required]

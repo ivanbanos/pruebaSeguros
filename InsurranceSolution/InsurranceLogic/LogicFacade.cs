@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -83,6 +84,43 @@ namespace InsurranceLogic
 
         public int DeleteInsurrance(int id) {
             return DataAccessFacade.Instance.DeleteInsurrance(id);
+        }
+
+        public bool login(string nombreUsuario, string contrasena)
+        {
+            InsurranceLogic.EFDataBaseConecction.Usuario usuario = DataAccessFacade.Instance.getUsuario(nombreUsuario);
+            string hashedPass = getHashSha256(contrasena + usuario.salt);
+            return usuario.Contrasena == hashedPass;
+        }
+
+        public static string getHashSha256(string text)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(text);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
+        }
+
+        public static string getSalt()
+        {
+            var random = new RNGCryptoServiceProvider();
+
+            // Maximum length of salt
+            int max_length = 4;
+
+            // Empty salt array
+            byte[] salt = new byte[max_length];
+
+            // Build the random bytes
+            random.GetNonZeroBytes(salt);
+
+            // Return the string encoded salt
+            return Convert.ToBase64String(salt);
         }
     }
 }

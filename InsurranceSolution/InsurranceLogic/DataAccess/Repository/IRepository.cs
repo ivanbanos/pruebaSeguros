@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InsurranceLogic.DataAccess.Repository
 {
-    interface IRepository<T> where T : class
+    interface IRepository<T> : IDisposable where T : class
     {
 
         T Find(int id);

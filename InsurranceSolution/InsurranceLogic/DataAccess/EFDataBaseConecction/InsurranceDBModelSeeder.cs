@@ -21,6 +21,18 @@ namespace InsurranceLogic.DataAccess.EFDataBaseConecction
             foreach (TiposCubrimiento tc in defaultTiposCubrimiento)
                 context.TiposCubrimientos.Add(tc);
 
+            Perfil perfil = new Perfil();
+            perfil.Nombre = "Administrador";
+            context.perfiles.Add(perfil);
+
+            Usuario usuario = new Usuario();
+            usuario.NombreUsuario = "gapuser";
+            usuario.perfil = perfil;
+            usuario.salt = LogicFacade.getSalt();
+            usuario.Contrasena = LogicFacade.getHashSha256("123456" + usuario.salt);
+            
+            context.usuarios.Add(usuario);
+
             context.SaveChanges();
 
             base.Seed(context);
