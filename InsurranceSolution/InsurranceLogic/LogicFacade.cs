@@ -88,9 +88,15 @@ namespace InsurranceLogic
 
         public bool login(string nombreUsuario, string contrasena)
         {
-            InsurranceLogic.EFDataBaseConecction.Usuario usuario = DataAccessFacade.Instance.getUsuario(nombreUsuario);
-            string hashedPass = getHashSha256(contrasena + usuario.salt);
-            return usuario.Contrasena == hashedPass;
+            try
+            {
+                InsurranceLogic.EFDataBaseConecction.Usuario usuario = DataAccessFacade.Instance.getUsuario(nombreUsuario);
+                string hashedPass = getHashSha256(contrasena + usuario.salt);
+                return usuario.Contrasena == hashedPass;
+            }
+            catch (Exception) {
+                return false;
+            }
         }
 
         public static string getHashSha256(string text)

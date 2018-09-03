@@ -25,6 +25,8 @@ namespace InsurranceLogic.DataAccess.EFDataBaseConecction
             perfil.Nombre = "Administrador";
             context.perfiles.Add(perfil);
 
+            context.SaveChanges();
+
             Usuario usuario = new Usuario();
             usuario.NombreUsuario = "gapuser";
             usuario.perfil = perfil;
