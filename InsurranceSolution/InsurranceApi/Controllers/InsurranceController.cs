@@ -23,6 +23,14 @@ namespace InsurranceApi.Controllers
         
         public string Post([FromBody]Insurrance elemento)
         {
+            if (elemento.periodoCobertura < 1)
+            {
+                return "Periodo cobertura no puede ser menor a 1";
+            }
+            if (elemento.tipoRiesgo > 4 || elemento.tipoRiesgo < 1)
+            {
+                return "Tipo de riesgo erroneo";
+            }
             if (elemento.tipoRiesgo == 4 && elemento.cobertura > 50) {
                 return "Con riesgo alto, no puede tener cobertura mayor al 50%";
             }
@@ -31,10 +39,23 @@ namespace InsurranceApi.Controllers
             return "Ok";
         }
         
-        public void Put(int id, [FromBody]Insurrance elemento)
+        public string Put(int id, [FromBody]Insurrance elemento)
         {
+            if (elemento.periodoCobertura < 1)
+            {
+                return "Periodo cobertura no puede ser menor a 1";
+            }
+            if (elemento.tipoRiesgo > 4 || elemento.tipoRiesgo < 1)
+            {
+                return "Tipo de riesgo erroneo";
+            }
+            if (elemento.tipoRiesgo == 4 && elemento.cobertura > 50)
+            {
+                return "Con riesgo alto, no puede tener cobertura mayor al 50%";
+            }
             InsurranceLogic.LogicFacade.Instance.UpdateInsurrance(id, elemento.Nombre, elemento.descripcion,
             elemento.inicioVigenciaPoliza, elemento.cobertura, elemento.periodoCobertura, elemento.precioPoliza, elemento.tipoRiesgo, elemento.TiposCubrimiento);
+            return "Ok";
         }
         
         public void Delete(int id)
