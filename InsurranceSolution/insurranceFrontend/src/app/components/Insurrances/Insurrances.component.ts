@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
  
 import { Insurrance } from '../../model/Insurrance';
 import { InsurranceService } from '../../services/Insurrance.service';
+import { TiposCubrimiento }         from '../../model/TiposCubrimiento';
+import { TiposCubrimientoService }  from '../../services/TiposCubrimiento.service';
 
 @Component({
   selector: 'app-insurrances',
@@ -10,16 +12,23 @@ import { InsurranceService } from '../../services/Insurrance.service';
 })
 export class InsurrancesComponent implements OnInit {
   Insurrances: Insurrance[];
+  tiposCubrimientos: TiposCubrimiento[];
  
-  constructor(private insurrancesService: InsurranceService) { }
+  constructor(private insurrancesService: InsurranceService,
+    private tiposCubrimientoService: TiposCubrimientoService) { }
  
   ngOnInit() {
     this.getInsurrances();
+    this.getTiposCubrimiento();
   }
  
   getInsurrances(): void {
     this.insurrancesService.getInsurrances()
     .subscribe(Insurrances => this.Insurrances = Insurrances);
+  }
+  getTiposCubrimiento(): void {
+    this.tiposCubrimientoService.getTiposCubrimientos()
+    .subscribe(tiposCubrimientos => this.tiposCubrimientos = tiposCubrimientos);
   }
  
   add(name: string, descripcion: string,idTipoCubrimiento: number,cobertura: number,inicioVigenciaPoliza: Date,

@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
  
 import { Insurrance }               from '../../model/Insurrance';
-import { TiposCubrimiento }         from '../../model/TiposCubrimiento';
 import { InsurranceService }        from '../../services/Insurrance.service';
+import { TiposCubrimiento }         from '../../model/TiposCubrimiento';
 import { TiposCubrimientoService }  from '../../services/TiposCubrimiento.service';
  
 @Component({

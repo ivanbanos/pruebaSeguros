@@ -1,45 +1,73 @@
-<h2>Insurrances</h2>
- 
-<div>
-  <label>Nombre:
-    <input #nombre />
-  </label>
-  <label>Descripcion:
-    <input #descripcion />
-  </label>
-  <label>Tipo Cubrimiento:
-    <input #tipoCubrimiento />
-  </label>
-  <label>Cobertura:
-    <input #cobertura />
-  </label>
-  <label>Inicio de vigencia de la poliza:
-    <input #inicioVigenciaPoliza />
-  </label>
-  <label>Periodo de cobertura:
-    <input #periodoCobertura />
-  </label>
-  <label>Precio:
-    <input #preciCobertura />
-  </label>
-  <label>Tipo de riesgo:
-    <input #tipoRiesgo />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(nombre.value, descripcion.value, tipoCubrimiento.value, cobertura.value,
-  inicioVigenciaPoliza.value, periodoCobertura.value, preciCobertura.value, tipoRiesgo.value ); 
-  insurranceName.value=''; descripcion.value=''; tipoCubrimiento.value=''; cobertura.value='';
-  inicioVigenciaPoliza.value=''; periodoCobertura.value=''; preciCobertura.value=''; tipoRiesgo.value='';">
-    Agregar poliza
-  </button>
+
+
+<div class="panel">
+    <header class="panel-heading">
+        <div class="panel-actions"></div>
+        <h3 class="panel-title">Lista de seguros</h3>
+    </header>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <label class="col-md-12">Nombre:
+                  <input #nombre />
+                </label>
+                <label class="col-md-12">Tipo Cubrimiento:
+                    <select  class="form-control" #tipoCubrimiento (ngModelChange)="onChange($event)">
+                        <option *ngFor="let tc of tiposCubrimientos" [ngValue]="tc.id">{{tc.Nombre}}</option>
+                        </select>
+                  </label>
+                  
+            <label class="col-md-12">Inicio de vigencia de la poliza:
+                <input #inicioVigenciaPoliza type="text" class="datepicker" />
+              </label>
+              
+            <label class="col-md-12">Precio:
+                <input #preciCobertura />
+              </label>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                  
+            <label class="col-md-12">Descripcion:
+                <input #descripcion />
+              </label>
+              
+            <label class="col-md-12">Cobertura:
+                <input #cobertura />
+              </label>
+              
+            <label class="col-md-12">Periodo de cobertura:
+                <input #periodoCobertura />
+              </label>
+              <label class="col-md-12">Tipo de riesgo:
+                <input #tipoRiesgo />
+              </label>
+                </div>
+            
+            <!-- (click) passes input value to add() and then clears the input -->
+            <button class="btn btn-default" (click)="add(nombre.value, descripcion.value, tipoCubrimiento.value, cobertura.value,
+            inicioVigenciaPoliza.value, periodoCobertura.value, preciCobertura.value, tipoRiesgo.value ); 
+            insurranceName.value=''; descripcion.value=''; tipoCubrimiento.value=''; cobertura.value='';
+            inicioVigenciaPoliza.value=''; periodoCobertura.value=''; preciCobertura.value=''; tipoRiesgo.value='';">
+              Agregar poliza
+            </button>
+          </div>
+
+          <ul class="insurrances">
+              <li *ngFor="let insurrance of Insurrances">
+                <a routerLink="/detail/{{insurrance.id}}">
+                  <span class="badge">{{insurrance.id}}</span> {{insurrance.Nombre}}
+                </a>
+                <button class="delete" title="delete insurrance"
+                (click)="delete(insurrance)">x</button>
+              </li>
+            </ul>
+    </div>
 </div>
+
  
-<ul class="insurrances">
-  <li *ngFor="let insurrance of Insurrances">
-    <a routerLink="/detail/{{insurrance.id}}">
-      <span class="badge">{{insurrance.id}}</span> {{insurrance.Nombre}}
-    </a>
-    <button class="delete" title="delete insurrance"
-    (click)="delete(insurrance)">x</button>
-  </li>
-</ul>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+  });     
+</script>

@@ -1,8 +1,11 @@
-<h1>{{title}}</h1>
+
 <nav>
-  <a routerLink="/Insurrances">Seguros</a>
-</nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Seguros</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a routerLink="/Insurrances">Seguros</a></li>
+      </ul>
+    </div>
+  </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
-
-
