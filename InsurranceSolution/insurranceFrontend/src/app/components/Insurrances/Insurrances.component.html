@@ -4,45 +4,82 @@
     <header class="panel-heading">
         <div class="panel-actions"></div>
         <h3 class="panel-title">Lista de seguros</h3>
+
     </header>
     <div class="panel-body">
+        <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                    <tr *ngFor="let insurrance of Insurrances">
+                        <td>{{insurrance.Nombre}}</td>
+                        <td>
+                          <a class="btn btn-default" routerLink="/detail/{{insurrance.id}}">
+                              ver
+                            </a>
+                            <button class="btn btn-default" title="delete insurrance"
+              (click)="delete(insurrance)">x</button>
+                        </td>
+                    </tr>
+                
+            </tbody>
+        </table>
+
+
+
+
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <label class="col-md-12">Nombre:
+                <label class="col-md-12 col-sm-12">Nombre:
                   <input #nombre />
                 </label>
-                <label class="col-md-12">Tipo Cubrimiento:
+                
+                <label class="col-md-12 col-sm-12">Tipo Cubrimiento:
                     <select  class="form-control" #tipoCubrimiento (ngModelChange)="onChange($event)">
-                        <option *ngFor="let tc of tiposCubrimientos" [ngValue]="tc.id">{{tc.Nombre}}</option>
+                        <option *ngFor="let tc of tiposCubrimientos" [value]="tc.id">{{tc.Nombre}}</option>
                         </select>
                   </label>
                   
-            <label class="col-md-12">Inicio de vigencia de la poliza:
+            <label class="col-md-12 col-sm-12">Inicio de vigencia de la poliza:
                 <input #inicioVigenciaPoliza type="text" class="datepicker" />
               </label>
               
-            <label class="col-md-12">Precio:
+            <label class="col-md-12 col-sm-12">Precio:
                 <input #preciCobertura />
               </label>
               </div>
               <div class="col-md-6 col-sm-12">
                   
-            <label class="col-md-12">Descripcion:
+            <label class="col-md-12 col-sm-12">Descripcion:
                 <input #descripcion />
               </label>
               
-            <label class="col-md-12">Cobertura:
+            <label class="col-md-12 col-sm-12">Cobertura:
                 <input #cobertura />
               </label>
               
-            <label class="col-md-12">Periodo de cobertura:
+            <label class="col-md-12 col-sm-12">Periodo de cobertura:
                 <input #periodoCobertura />
               </label>
-              <label class="col-md-12">Tipo de riesgo:
-                <input #tipoRiesgo />
+              <label class="col-md-12 col-sm-12">Tipo de riesgo:
+                <select  class="form-control" #tipoRiesgo >
+                    <option value="1">Bajo</option>
+                    <option value="2">Medio</option>
+                    <option value="3">Medio-alto</option>
+                    <option value="4">Alto</option>
+                    </select>
               </label>
                 </div>
-            
             <!-- (click) passes input value to add() and then clears the input -->
             <button class="btn btn-default" (click)="add(nombre.value, descripcion.value, tipoCubrimiento.value, cobertura.value,
             inicioVigenciaPoliza.value, periodoCobertura.value, preciCobertura.value, tipoRiesgo.value ); 
@@ -52,15 +89,7 @@
             </button>
           </div>
 
-          <ul class="insurrances">
-              <li *ngFor="let insurrance of Insurrances">
-                <a routerLink="/detail/{{insurrance.id}}">
-                  <span class="badge">{{insurrance.id}}</span> {{insurrance.Nombre}}
-                </a>
-                <button class="delete" title="delete insurrance"
-                (click)="delete(insurrance)">x</button>
-              </li>
-            </ul>
+          
     </div>
 </div>
 

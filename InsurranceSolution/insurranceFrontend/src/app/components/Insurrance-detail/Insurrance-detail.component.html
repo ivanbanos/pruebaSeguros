@@ -1,42 +1,64 @@
 <div *ngIf="insurrance">
-  <h2>{{ insurrance.Nombre | uppercase }} Details</h2>
-  <div><span>id: </span>{{insurrance.id}}</div>
-  <div><span>descripcion: </span>{{insurrance.descripcion}}</div>
-  <div><span>TiposCubrimiento: </span>{{insurrance.TiposCubrimiento.Nombre}}</div>
-  <div><span>cobertura: </span>{{insurrance.cobertura}}</div>
-  <div><span>inicioVigenciaPoliza: </span>{{insurrance.inicioVigenciaPoliza}}</div>
-  <div><span>periodoCobertura: </span>{{insurrance.periodoCobertura}}</div>
-  <div><span>precioPoliza: </span>{{insurrance.precioPoliza}}</div>
-  <div><span>tipoRiesgo: </span>{{insurrance.tipoRiesgo}}</div>
+    <div class="panel">
+        <header class="panel-heading">
+            <div class="panel-actions"></div>
+            <h3 class="panel-title">Poliza de seguro N {{insurrance.id}}</h3>
+    
+        </header>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <label class="col-md-12 col-sm-12">Nombre:
+                        <input [(ngModel)]="insurrance.Nombre" placeholder="name"/>
+                    </label>
+                    
+                    <label class="col-md-12 col-sm-12">Tipo Cubrimiento:
+                        <select  class="form-control" [(ngModel)]="insurrance.TiposCubrimiento.id" (ngModelChange)="onChange($event)">
+                            <option *ngFor="let tc of tiposCubrimientos" [value]="tc.id">{{tc.Nombre}}</option>
+                            </select>
+                      </label>
+                      
+                <label class="col-md-12 col-sm-12">Inicio de vigencia de la poliza:
+                    <input [(ngModel)]="insurrance.inicioVigenciaPoliza" type="text" class="datepicker" />
+                  </label>
+                  
+                <label class="col-md-12 col-sm-12">Precio:
+                    <input [(ngModel)]="insurrance.periodoCobertura" />
+                  </label>
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                      
+                <label class="col-md-12 col-sm-12">Descripcion:
+                    <input [(ngModel)]="insurrance.descripcion"  />
+                  </label>
+                  
+                <label class="col-md-12 col-sm-12">Cobertura:
+                    <input [(ngModel)]="insurrance.cobertura" />
+                  </label>
+                  
+                <label class="col-md-12 col-sm-12">Periodo de cobertura:
+                    <input [(ngModel)]="insurrance.periodoCobertura" />
+                  </label>
+                  <label class="col-md-12 col-sm-12">Tipo de riesgo:
+                    <select  class="form-control" [(ngModel)]="insurrance.tipoRiesgo" >
+                        <option value="1">Bajo</option>
+                        <option value="2">Medio</option>
+                        <option value="3">Medio-alto</option>
+                        <option value="4">Alto</option>
+                        </select>
+                  </label>
+                    </div>
+              </div>
+        </div>
+        <div class="panel-footer">
+            <button class="btn btn-default" (click)="goBack()">Volver</button>
+            <button class="btn btn-default" (click)="save()">Guardar cambios</button>
+          </div>
+      </div>
+
   
-  <div>
-    <label>Nombre:
-      <input [(ngModel)]="insurrance.Nombre" placeholder="name"/>
-    </label>
-    <label>Descripcion:
-      <input [(ngModel)]="insurrance.descripcion" placeholder="descripcion"/>
-    </label>
-    <label>Tipo Cubrimiento:
-        <select [(ngModel)]="insurrance.TiposCubrimiento.id">
-            <option *ngFor="let tc of tiposCubrimientos" [ngValue]="tc.id">{{tc.Nombre}}</option>
-          </select>
-    </label>
-    <label>Cobertura:
-      <input [(ngModel)]="insurrance.cobertura" placeholder="cobertura"/>
-    </label>
-    <label>Inicio de vigencia de la poliza:
-      <input [(ngModel)]="insurrance.inicioVigenciaPoliza" placeholder="inicioVigenciaPoliza"/>
-    </label>
-    <label>Periodo de cobertura:
-      <input [(ngModel)]="insurrance.periodoCobertura" placeholder="periodoCobertura"/>
-    </label>
-    <label>Precio:
-      <input [(ngModel)]="insurrance.precioPoliza" placeholder="precioPoliza"/>
-    </label>
-    <label>Tipo de riesgo:
-      <input [(ngModel)]="insurrance.tipoRiesgo" placeholder="tipoRiesgo"/>
-    </label>
-  </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+
+
+
 </div>
