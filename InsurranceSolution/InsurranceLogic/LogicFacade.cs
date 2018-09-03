@@ -86,17 +86,31 @@ namespace InsurranceLogic
             return DataAccessFacade.Instance.DeleteInsurrance(id);
         }
 
-        public bool login(string nombreUsuario, string contrasena)
+        public Usuario login(string nombreUsuario, string contrasena)
         {
             try
             {
                 InsurranceLogic.EFDataBaseConecction.Usuario usuario = DataAccessFacade.Instance.getUsuario(nombreUsuario);
                 string hashedPass = getHashSha256(contrasena + usuario.salt);
-                return usuario.Contrasena == hashedPass;
+                if (usuario.Contrasena == hashedPass)
+                {
+                    Usuario usuarioDTO = new Usuario() { Contrasena = "", NombreUsuario = nombreUsuario };
+                    usuarioDTO.Token = getTokenSesion();
+                    return usuarioDTO;
+                }
+                else
+                {
+                    return new Usuario() { Token = "" };
+                }
             }
             catch (Exception) {
-                return false;
+                return new Usuario() { Token = ""};
             }
+        }
+
+        private string getTokenSesion()
+        {
+            return "?WEJgo34w";
         }
 
         public static string getHashSha256(string text)

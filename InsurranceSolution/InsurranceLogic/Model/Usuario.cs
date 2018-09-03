@@ -10,9 +10,8 @@ namespace InsurranceLogic.Model
 {
     public partial class Usuario : DTO
     {
-        public int id { get; set; }
         public string NombreUsuario { get; set; }
         public string Contrasena { get; set; }
-        public string salt { get; set; }
+        public string Token { get; set; }
     }
 }

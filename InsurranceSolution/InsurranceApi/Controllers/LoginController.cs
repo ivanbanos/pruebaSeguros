@@ -10,7 +10,7 @@ namespace InsurranceApi.Controllers
 {
     public class LoginController : ApiController
     {
-        public bool Post([FromBody]Usuario elemento)
+        public Usuario Post([FromBody]Usuario elemento)
         {
             return InsurranceLogic.LogicFacade.Instance.login(elemento.NombreUsuario, elemento.Contrasena);
         }

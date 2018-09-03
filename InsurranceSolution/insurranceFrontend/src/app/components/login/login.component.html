@@ -7,15 +7,15 @@
                         <div class="col-md-12">
                             <div id="login-form">
                                 <div class="form-group">
-                                    <input type="text" name="NombreUsuario" id="NombreUsuario" tabindex="1" class="form-control" placeholder="Nombre de usuario" [(ngModel)]="usuario.NombreUsuario" >
+                                    <input type="text" name="NombreUsuario" id="NombreUsuario" tabindex="1" class="form-control" placeholder="Nombre de usuario" #NombreUsuario >
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="Contrasena" id="Contrasena" tabindex="2" class="form-control" placeholder="Contrasena" [(ngModel)]="usuario.Contrasena">
+                                    <input type="password" name="Contrasena" id="Contrasena" tabindex="2" class="form-control" placeholder="Contrasena" #contrasena>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div>
-                                            <input type="submit" name="login-submit" (click)="login()" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                            <input type="submit" name="login-submit" (click)="login(NombreUsuario.value, contrasena.value)" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
                                         </div>
                                     </div>
                                 </div>
