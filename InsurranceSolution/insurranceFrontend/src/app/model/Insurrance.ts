@@ -1,5 +1,5 @@
 
-import { TiposCubrimiento }         from 'src/app/TiposCubrimiento';
+import { TiposCubrimiento }         from 'src/app/model/TiposCubrimiento';
 
 export class Insurrance {
   id: number;

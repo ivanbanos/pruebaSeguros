@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { InsurrancesComponent } from './components/Insurrances/Insurrances.component';
 import { InsurranceDetailComponent } from './components/Insurrance-detail/Insurrance-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MessagesComponent } from './components/messages/messages.component';
     AppComponent,
     InsurrancesComponent,
     InsurranceDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })
