@@ -21,7 +21,7 @@ namespace InsurranceLogic.EFDataBaseConecction
         public string Contrasena { get; set; }
 
         [Required]
-        [StringLength(4)]
+        [StringLength(100)]
         public string salt { get; set; }
 
         public int idPerfil { get; set; }

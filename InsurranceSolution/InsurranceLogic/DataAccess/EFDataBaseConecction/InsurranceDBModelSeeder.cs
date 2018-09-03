@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InsurranceLogic.DataAccess.EFDataBaseConecction
 {
-    class InsurranceDBModelSeeder : DropCreateDatabaseIfModelChanges<InsurranceDBModel>
+    class InsurranceDBModelSeeder : DropCreateDatabaseAlways<InsurranceDBModel>
     {
         protected override void Seed(InsurranceDBModel context)
         {
@@ -30,6 +30,7 @@ namespace InsurranceLogic.DataAccess.EFDataBaseConecction
             Usuario usuario = new Usuario();
             usuario.NombreUsuario = "gapuser";
             usuario.perfil = perfil;
+            usuario.idPerfil = perfil.id;
             usuario.salt = LogicFacade.getSalt();
             usuario.Contrasena = LogicFacade.getHashSha256("123456" + usuario.salt);
             
