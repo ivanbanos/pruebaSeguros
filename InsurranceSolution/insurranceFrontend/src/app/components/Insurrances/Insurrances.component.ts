@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
  
+import {Router} from "@angular/router";
 import { Insurrance } from '../../model/Insurrance';
 import { InsurranceService } from '../../services/Insurrance.service';
 import { TiposCubrimiento }         from '../../model/TiposCubrimiento';
 import { TiposCubrimientoService }  from '../../services/TiposCubrimiento.service';
+import { LoginService }  from '../../services/Login.service';
 
 @Component({
   selector: 'app-insurrances',
@@ -14,13 +16,17 @@ export class InsurrancesComponent implements OnInit {
   Insurrances: Insurrance[];
   tiposCubrimientos: TiposCubrimiento[];
  
-  constructor(private insurrancesService: InsurranceService,
-    private tiposCubrimientoService: TiposCubrimientoService) { }
+  constructor(private router: Router,private insurrancesService: InsurranceService,
+    private tiposCubrimientoService: TiposCubrimientoService, private loginService: LoginService) { }
  
   ngOnInit() {
+    if( this.loginService.getToken() === null){
+    this.router.navigate(['/Login']);
+  } 
     this.getInsurrances();
     this.getTiposCubrimiento();
   }
+
  
   getInsurrances(): void {
     this.insurrancesService.getInsurrances()

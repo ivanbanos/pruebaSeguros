@@ -15,25 +15,30 @@ const httpOptions = {
 export class LoginService {
  
   private LoginsUrl = 'http://localhost:51719/api/Login'; 
-  private usuario:Usuario;
+   
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
  
   /** GET Logines from the server */
-  Login (usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.LoginsUrl, usuario, httpOptions).pipe(
-      tap((usuario: Usuario) => this.usuario = usuario),
-      catchError(this.handleError<Usuario>('Login'))
+  Login (usuario: Usuario): Observable<string> {
+    return this.http.post<string>(this.LoginsUrl, usuario, httpOptions).pipe(
+      tap((token: string) => localStorage.setItem('Token', token)),
+      catchError(this.handleError<string>('Login'))
     );
   }
 
-  getUsuario():Usuario{
-    return this.usuario;
+  getToken():string{
+    let token = '';
+    token = localStorage.getItem('Token');
+    return token;
   }
  
-  
+  logout(){
+
+    localStorage.removeItem('Token');
+  }
  
   /**
    * Handle Http operation that failed.

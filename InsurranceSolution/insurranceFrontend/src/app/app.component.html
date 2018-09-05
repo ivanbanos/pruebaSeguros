@@ -1,11 +1,11 @@
 
 <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Seguros</a>
+      <label  class="brand-logo">Seguros</label>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a routerLink="/Insurrances">Seguros</a></li>
+        <li><a (click)="logout()">cerrar sesi&oacute;n</a></li>
       </ul>
     </div>
   </nav>
 <router-outlet></router-outlet>
-<app-messages></app-messages>

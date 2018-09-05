@@ -6,10 +6,9 @@ import { catchError, map, tap } from 'rxjs/operators';
  
 import { Insurrance } from '../model/Insurrance';
 import { MessageService } from './message.service';
+import { LoginService } from './Login.service';
  
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+
  
 @Injectable({ providedIn: 'root' })
 export class InsurranceService {
@@ -18,11 +17,15 @@ export class InsurranceService {
  
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private loginService: LoginService) { }
  
   /** GET Insurrancees from the server */
   getInsurrances (): Observable<Insurrance[]> {
-    return this.http.get<Insurrance[]>(this.InsurrancesUrl)
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+this.loginService.getToken()})
+    };
+    return this.http.get<Insurrance[]>(this.InsurrancesUrl, httpOptions)
       .pipe(
         tap(Insurrances => this.log(`fetched Insurrances`)),
         catchError(this.handleError('getInsurrances', []))
@@ -32,7 +35,10 @@ export class InsurranceService {
   /** GET Insurrance by id. Return `undefined` when id not found */
   getInsurranceNo404<Data>(id: number): Observable<Insurrance> {
     const url = `${this.InsurrancesUrl}/${id}`;
-    return this.http.get<Insurrance[]>(url)
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+this.loginService.getToken()})
+    };
+    return this.http.get<Insurrance[]>(url, httpOptions)
       .pipe(
         map(Insurrancees => Insurrancees[0]), // returns a {0|1} element array
         tap(h => {
@@ -46,7 +52,10 @@ export class InsurranceService {
   /** GET Insurrance by id. Will 404 if id not found */
   getInsurrance(id: number): Observable<Insurrance> {
     const url = `${this.InsurrancesUrl}/${id}`;
-    return this.http.get<Insurrance>(url).pipe(
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+this.loginService.getToken()})
+    };
+    return this.http.get<Insurrance>(url,httpOptions).pipe(
       tap(_ => this.log(`fetched Insurrance id=${id}`)),
       catchError(this.handleError<Insurrance>(`getInsurrance id=${id}`))
     );
@@ -57,6 +66,9 @@ export class InsurranceService {
  
   /** POST: add a new Insurrance to the server */
   addInsurrance (Insurrance: Insurrance): Observable<Insurrance> {
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+this.loginService.getToken()})
+    };
     return this.http.post<Insurrance>(this.InsurrancesUrl, Insurrance, httpOptions).pipe(
       tap((Insurrance: Insurrance) => this.log(`added Insurrance w/ id=${Insurrance.id}`)),
       catchError(this.handleError<Insurrance>('addInsurrance'))
@@ -67,7 +79,9 @@ export class InsurranceService {
   deleteInsurrance (Insurrance: Insurrance | number): Observable<Insurrance> {
     const id = typeof Insurrance === 'number' ? Insurrance : Insurrance.id;
     const url = `${this.InsurrancesUrl}/${id}`;
- 
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+this.loginService.getToken()})
+    };
     return this.http.delete<Insurrance>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted Insurrance id=${id}`)),
       catchError(this.handleError<Insurrance>('deleteInsurrance'))
@@ -76,6 +90,9 @@ export class InsurranceService {
  
   /** PUT: update the Insurrance on the server */
   updateInsurrance (Insurrance: Insurrance): Observable<any> {
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+this.loginService.getToken()})
+    };
     const url = `${this.InsurrancesUrl}/${Insurrance.id}`;
     return this.http.put(url, Insurrance, httpOptions).pipe(
       tap(_ => this.log(`updated Insurrance id=${Insurrance.id}`)),

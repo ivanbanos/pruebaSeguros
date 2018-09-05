@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
  
 import { TiposCubrimiento } from '../model/TiposCubrimiento';
 import { MessageService } from './message.service';
+import { LoginService } from './Login.service';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,11 +19,15 @@ export class TiposCubrimientoService {
  
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private loginService: LoginService) { }
  
   /** GET TiposCubrimientoes from the server */
   getTiposCubrimientos (): Observable<TiposCubrimiento[]> {
-    return this.http.get<TiposCubrimiento[]>(this.TiposCubrimientosUrl)
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+this.loginService.getToken()})
+    };
+    return this.http.get<TiposCubrimiento[]>(this.TiposCubrimientosUrl, httpOptions)
       .pipe(
         tap(TiposCubrimientos => this.log(`fetched TiposCubrimientos`)),
         catchError(this.handleError('getTiposCubrimientos', []))
