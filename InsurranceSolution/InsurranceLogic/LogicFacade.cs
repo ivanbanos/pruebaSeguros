@@ -1,11 +1,15 @@
-﻿using InsurranceLogic.DataAccess;
+﻿using InsurranceApi.Authentication;
+using InsurranceLogic.DataAccess;
 using InsurranceLogic.DataAccess.Repository;
 using InsurranceLogic.Model;
 using InsurranceLogic.ModelAdapter;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,7 +99,7 @@ namespace InsurranceLogic
                 if (usuario.Contrasena == hashedPass)
                 {
                     Usuario usuarioDTO = new Usuario() { Contrasena = "", NombreUsuario = nombreUsuario };
-                    usuarioDTO.Token = getTokenSesion();
+                    //usuarioDTO.Token = getTokenSesion(usuarioDTO);
                     return usuarioDTO;
                 }
                 else
@@ -107,10 +111,57 @@ namespace InsurranceLogic
                 return new Usuario() { Token = ""};
             }
         }
-
-        private string getTokenSesion()
+        
+        public string Authenticate(Usuario login)
         {
-            return "?WEJgo34w";
+            try
+            {
+                InsurranceLogic.EFDataBaseConecction.Usuario usuario = DataAccessFacade.Instance.getUsuario(login.NombreUsuario);
+                string hashedPass = getHashSha256(login.Contrasena + usuario.salt);
+                bool isUsernamePasswordValid = usuario.Contrasena == hashedPass;
+                if (isUsernamePasswordValid)
+                {
+                    string token = createToken(login.NombreUsuario);
+                    return token;
+                }
+                else
+                {
+
+
+                    return "401";
+                }
+            }
+            catch (Exception e) {
+                return "401";
+            }
+        }
+
+        private string createToken(string username)
+        {
+            DateTime issuedAt = DateTime.UtcNow;
+            DateTime expires = DateTime.UtcNow.AddDays(7);
+            
+            var tokenHandler = new JwtSecurityTokenHandler();
+            
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[]
+            {
+                new Claim(ClaimTypes.Name, username)
+            });
+
+            const string sec = "401b09eab3c013d4ca54922bb802bec8fd5318192b0a75f201d8b3727429090fb337591abd3e44453b954555b7a0812e1081c39b740293f765eae731f5a65ed1";
+            var now = DateTime.UtcNow;
+            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(sec));
+            var signingCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
+
+
+            //create the jwt
+            var token =
+                (JwtSecurityToken)
+                    tokenHandler.CreateJwtSecurityToken(issuer: "http://localhost:50191", audience: "http://localhost:50191",
+                        subject: claimsIdentity, notBefore: issuedAt, expires: expires, signingCredentials: signingCredentials);
+            var tokenString = tokenHandler.WriteToken(token);
+
+            return tokenString;
         }
 
         public static string getHashSha256(string text)
@@ -141,6 +192,25 @@ namespace InsurranceLogic
 
             // Return the string encoded salt
             return Convert.ToBase64String(salt);
+        }
+
+        public bool IsValidUser(string nombreUsuario, string contrasena)
+        {
+            try
+            {
+                InsurranceLogic.EFDataBaseConecction.Usuario usuario = DataAccessFacade.Instance.getUsuario(nombreUsuario);
+                string hashedPass = getHashSha256(contrasena + usuario.salt);
+                if (usuario.Contrasena == hashedPass)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

@@ -102,3 +102,15 @@ C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\ob
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\obj\Debug\InsurranceApi.pdb
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\EntityFramework.SqlServer.dll
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\EntityFramework.SqlServer.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\Microsoft.IdentityModel.Logging.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\Microsoft.IdentityModel.Tokens.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi\bin\System.IdentityModel.Tokens.Jwt.xml

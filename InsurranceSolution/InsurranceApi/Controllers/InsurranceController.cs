@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace InsurranceApi.Controllers
 {
+    [Authorize]
     public class InsurranceController : ApiController
     {
         public List<Insurrance> Get()

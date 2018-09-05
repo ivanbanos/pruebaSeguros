@@ -45,3 +45,15 @@ C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Te
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\InsurranceLogic.pdb
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\InsurranceLogic.dll.config
 C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\EntityFramework.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\Microsoft.IdentityModel.Tokens.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\Microsoft.IdentityModel.Logging.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\Users\IvanBaños\Insurrance\pruebaSeguros\InsurranceSolution\InsurranceApi.Tests\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
